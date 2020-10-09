@@ -1,0 +1,33 @@
+daysPerWeek
+5
+studyDays
+mn;tu;wed;th;fri
+maxSlotsPerDay
+6
+9:00;10:00
+10:00;11:00
+11:00;12:00
+12:00;13:00
+13:00;14:00
+14:00;15:00
+numberTeachers
+5
+teachers
+01;John Smith;123;Java;L
+01;John Smith;123;Java;P
+02;Maria Korn;123;Java;P
+03;Pol Reno;124;MOOP;L
+04;Tern Colins;124;MOOP;P
+02;Maria Korn;125;Cyber security;L
+03;Pol Reno;125;Cyber security;P
+04;Tern Colins;126;Algebra;L
+05;Anna Mall;126;Algebra;P
+04;Tern Colins;126;Algebra;P
+05;Anna Mal;127;APPRP;L
+01;John Smith;127;APPRP;P
+02;Maria Korn;127;APPRP;P
+amountOfBatches
+3
+1111;Software Engineering;3;Java;1;1;APPRP;2;1;Algebra;1;2
+1112;Computer Science;4;MOOP;2;2;Cyber security;1;1;Java;2;1;Algebra;1;2
+1113;Applied Mathematics;2;Algebra;2;2;Cyber security;1;1
