@@ -1,33 +1,53 @@
-daysPerWeek
-5
-studyDays
-mn;tu;wed;th;fri
-maxSlotsPerDay
-6
-9:00;10:00
-10:00;11:00
-11:00;12:00
-12:00;13:00
-13:00;14:00
-14:00;15:00
-numberTeachers
-5
-teachers
-01;John Smith;123;Java;L
-01;John Smith;123;Java;P
-02;Maria Korn;123;Java;P
-03;Pol Reno;124;MOOP;L
-04;Tern Colins;124;MOOP;P
-02;Maria Korn;125;Cyber security;L
-03;Pol Reno;125;Cyber security;P
-04;Tern Colins;126;Algebra;L
-05;Anna Mall;126;Algebra;P
-04;Tern Colins;126;Algebra;P
-05;Anna Mal;127;APPRP;L
-01;John Smith;127;APPRP;P
-02;Maria Korn;127;APPRP;P
-amountOfBatches
-3
-1111;Software Engineering;3;Java;1;1;APPRP;2;1;Algebra;1;2
-1112;Computer Science;4;MOOP;2;2;Cyber security;1;1;Java;2;1;Algebra;1;2
-1113;Applied Mathematics;2;Algebra;2;2;Cyber security;1;1
+rooms
+R1;25
+R2;45
+R3;15
+meetingTime
+MT_MN_1;Monday 10:00 - 11:00
+MT_MN_2;Monday 11:00 - 12:00
+MT_MN_3;Monday 12:00 - 13:00
+MT_MN_4;Monday 13:00 - 14:00
+MT_MN_5;Monday 14:00 - 15:00
+MT_MN_6;Monday 15:00 - 16:00
+MT_TU_1;Tuesday 10:00 - 11:00
+MT_TU_2;Tuesday 11:00 - 12:00
+MT_TU_3;Tuesday 12:00 - 13:00
+MT_TU_4;Tuesday 13:00 - 14:00
+MT_TU_5;Tuesday 14:00 - 15:00
+MT_TU_6;Tuesday 15:00 - 16:00
+MT_WD_1;Wednesday 10:00 - 11:00
+MT_WD_2;Wednesday 11:00 - 12:00
+MT_WD_3;Wednesday 12:00 - 13:00
+MT_WD_4;Wednesday 13:00 - 14:00
+MT_WD_5;Wednesday 14:00 - 15:00
+MT_WD_6;Wednesday 15:00 - 16:00
+MT_TH_1;Thursday 10:00 - 11:00
+MT_TH_2;Thursday 11:00 - 12:00
+MT_TH_3;Thursday 12:00 - 13:00
+MT_TH_4;Thursday 13:00 - 14:00
+MT_TH_5;Thursday 14:00 - 15:00
+MT_TH_6;Thursday 15:00 - 16:00
+MT_FR_1;Friday 10:00 - 11:00
+MT_FR_2;Friday 11:00 - 12:00
+MT_FR_3;Friday 12:00 - 13:00
+MT_FR_4;Friday 13:00 - 14:00
+MT_FR_5;Friday 14:00 - 15:00
+MT_FR_6;Friday 15:00 - 16:00
+instructors
+01;Dr James Web
+02;Mr. Mike Brown
+03;Dr Steve Day
+04;Mrs Jane Doe
+courses
+101;BD;01;01;02
+102;Java;01;02;03
+103;Cyber security;01;02
+104;Algebra;03;03;04
+105;APPRP;04;04
+106;MOOP;01;03
+107;Functional programming;02;04
+depts
+MATH;101;103
+EE;102;104;105
+PHY;106;107
+end

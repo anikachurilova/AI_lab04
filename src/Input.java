@@ -1,22 +1,35 @@
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Input {
+//    public static final int POPULATION_SIZE = 9;
+//    public static final double MUTATION_RATE = 0.1;
+//    public static final double CROSSOVER_RATE = 0.9;
+//    public static final int TOURNAMENT_SELECTION_SIZE = 3;
+//    public static final int NUMB_OF_ELITE_SCHEDULES = 1;
+//    private int scheduleNumb = 0;
+//    private int classNumb = 1;
 
-  //  public static StudentGroup[] studentgroup;
-   // public static Teacher[] teacher;
-    public static double crossoverrate = 1.0, mutationrate = 0.1;
-    public static int nostudentgroup, noteacher;
-    public static int hoursperday, daysperweek;
 
-    public Input() {
-     //   studentgroup = new StudentGroup[100];
-      //  teacher =   new Teacher[100];
+    public static ArrayList<Room> rooms = new ArrayList<>();
+    public static ArrayList<Teacher> teachers = new ArrayList<>();
+    public static ArrayList<Subject> subjects =new ArrayList<>();
+    public static ArrayList<StudentGroup> studentGroups =new ArrayList<>();
+    public static ArrayList<PeriodTime> periodTimes =new ArrayList<>();
+
+    public static void main(String[] args) {
+        takeinput();
+        System.out.println(rooms);
+        System.out.println(subjects);
+        System.out.println(teachers);
+        System.out.println(studentGroups);
+        System.out.println(periodTimes);
     }
 
-public static void main(String[] args){
-        takeinput();
-}
+
+
+
 
 
     public static void takeinput()// takes input from file input.txt
@@ -25,65 +38,105 @@ public static void main(String[] args){
          File file = new File("input.txt");
          Scanner scanner = new Scanner(file);
 
-         while (scanner.hasNextLine()){
+
              String line = scanner.nextLine();
 
-             if(line.equalsIgnoreCase("daysPerWeek")){
-
+             if(line.equals("rooms")){
+                 while(true) {
+                     line = scanner.nextLine();
+                     if (!line.equals("meetingTime")) {
+                         String[] currentRoom = line.split(";");
+                         Room r = new Room(currentRoom[0], Integer.parseInt(currentRoom[1]));
+                         rooms.add(r);
+                     }else{
+                         //якщо лінія - мітінг тайм
+                         break;
+                     }
+                 }
              }
-         }
-//        try {
-//            File file = new File("c:\\test\\input.txt");
-//            // File file = new File(System.getProperty("user.dir") +
-//            // "/input.txt");
-//
-//            Scanner scanner = new Scanner(file);
-//
-//            while (scanner.hasNextLine()) {
-//                String line = scanner.nextLine();
-//
-//                // input student groups
-//                if (line.equalsIgnoreCase("studentgroups")) {
-//                    int i = 0, j;
-//                    while (!(line = scanner.nextLine()).equalsIgnoreCase("teachers")) {
-//                        studentgroup[i] = new StudentGroup();
-//                        StringTokenizer st = new StringTokenizer(line, " ");
-//                        studentgroup[i].id = i;
-//                        studentgroup[i].name = st.nextToken();
-//                        studentgroup[i].nosubject = 0;
-//                        j = 0;
-//                        while (st.hasMoreTokens()) {
-//                            studentgroup[i].subject[j] = st.nextToken();
-//                            studentgroup[i].hours[j++] = Integer.parseInt(st.nextToken());
-//                            studentgroup[i].nosubject++;
-//                        }
-//                        i++;
-//                    }
-//                    nostudentgroup = i;
-//                }
-//
-//                //input teachers
-//                if (line.equalsIgnoreCase("teachers")) {
-//                    int i = 0;
-//                    while (!(line = scanner.nextLine()).equalsIgnoreCase("end")) {
-//                        teacher[i] = new Teacher();
-//                        StringTokenizer st = new StringTokenizer(line, " ");
-//                        teacher[i].id = i;
-//                        teacher[i].name = st.nextToken();
-//                        teacher[i].subject = st.nextToken();
-//
-//                        i++;
-//                    }
-//                    noteacher = i;
-//                }
-//
-//            }
-//            scanner.close();
+             if(line.equals("meetingTime")){
+                 while(true) {
+                     line = scanner.nextLine();
+                     if (!line.equals("instructors")) {
+                         String[] currentMeetingTime = line.split(";");
+                         periodTimes.add(new PeriodTime(currentMeetingTime[0],currentMeetingTime[1]));
+                     }else{
+                         //якщо лінія - instructors
+                         break;
+                     }
+                 }
+             }
+             if(line.equals("instructors")){
+                 while(true) {
+                     line = scanner.nextLine();
+                     if (!line.equals("courses")) {
+                         String[] currentInstructor = line.split(";");
+                         teachers.add(new Teacher(Integer.parseInt(currentInstructor[0]),currentInstructor[1]));
+                     }else{
+                         //якщо лінія - courses
+                         break;
+                     }
+                 }
+             }
+             if(line.equals("courses")){
+                 while(true) {
+                     line = scanner.nextLine();
+                     if (!line.equals("depts")) {
+                         String[] currentCourse = line.split(";");
+                         //додаємо лекцію
+                         //находимо лектора за індексом
+                         ArrayList<Teacher> t_l = new ArrayList<>();
+                         for(int i = 0; i< teachers.size(); i++){
+                             if(teachers.get(i).id == Integer.parseInt(currentCourse[2])){
+                                 t_l.add(teachers.get(i));
+                             }
+                         }
+                         subjects.add(new Subject(Integer.parseInt(currentCourse[0]+"0"),currentCourse[1],"L", t_l));
+                     //practice course
+
+                     ArrayList<Teacher> t_p = new ArrayList<>();
+                         for(int j=3; j<currentCourse.length;j++){
+                             for(int i = 0; i< teachers.size(); i++){
+                             if(Integer.parseInt(currentCourse[j]) == teachers.get(i).id){
+                                 t_p.add(teachers.get(i));
+                                 break;
+                             }
+                         }
+                     }
+                         subjects.add(new Subject(Integer.parseInt(currentCourse[0]+"1"),currentCourse[1],"P", t_p));
+                     }else{
+                         //якщо лінія - depts
+                         break;
+                     }
+                 }
+             }
+             if(line.equals("depts")) {
+                 while (true) {
+                     line = scanner.nextLine();
+                     if (!line.equals("end")) {
+                         String[] currentDep = line.split(";");
+                         ArrayList<Subject> dep_subjects = new ArrayList<>();
+                         for(int j=1; j<currentDep.length;j++){
+                             for(int i = 0; i< subjects.size(); i++){
+                                 if(Integer.parseInt(currentDep[j]+"0") == subjects.get(i).id){
+                                     dep_subjects.add(subjects.get(i));
+
+                                 }
+                                 if(Integer.parseInt(currentDep[j]+"1") == subjects.get(i).id){
+                                     dep_subjects.add(subjects.get(i));
+                                 }
+                             }
+                         }
+                    studentGroups.add(new StudentGroup(currentDep[0],dep_subjects));
+                     }
+                     break;
+                 }
+             }
+
+            scanner.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-     //   assignTeacher();
 
     }
 }
