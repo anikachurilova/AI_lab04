@@ -1,18 +1,20 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
 public class Subject {
     int id;
     String name;
-    Teacher teacherLecture;
-    Teacher[] teacherPractice;
+    String type;
+    ArrayList<Teacher> teacher;
 
-    public Subject(int id, String name, Teacher teacherLecture, Teacher[] teacherPractice) {
+    public Subject(int id, String name, String type, ArrayList<Teacher> teacher) {
         this.id = id;
         this.name = name;
-        this.teacherLecture = teacherLecture;
-        this.teacherPractice = teacherPractice;
+        this.type = type;
+        this.teacher = teacher;
     }
+
 
     public int getId() {
         return id;
@@ -30,30 +32,20 @@ public class Subject {
         this.name = name;
     }
 
-    public Teacher getTeacherLecture() {
-        return teacherLecture;
+    public String getType() {
+        return type;
     }
 
-    public void setTeacherLecture(Teacher teacherLecture) {
-        this.teacherLecture = teacherLecture;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Teacher[] getTeacherPractice() {
-        return teacherPractice;
+    public ArrayList<Teacher> getTeacher() {
+        return teacher;
     }
 
-    public void setTeacherPractice(Teacher[] teacherPractice) {
-        this.teacherPractice = teacherPractice;
-    }
-
-    @Override
-    public String toString() {
-        return "Subject{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", teacherLecture=" + teacherLecture +
-                ", teacherPractice=" + Arrays.toString(teacherPractice) +
-                '}';
+    public void setTeacher(ArrayList<Teacher> teacher) {
+        this.teacher = teacher;
     }
 
     @Override
@@ -63,9 +55,18 @@ public class Subject {
         Subject subject = (Subject) o;
         return id == subject.id &&
                 Objects.equals(name, subject.name) &&
-                Objects.equals(teacherLecture, subject.teacherLecture) &&
-                Arrays.equals(teacherPractice, subject.teacherPractice);
+                Objects.equals(type, subject.type) &&
+                Objects.equals(teacher, subject.teacher);
     }
 
 
+    @Override
+    public String toString() {
+        return "Subject{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", teacher=" + teacher +
+                '}';
+    }
 }

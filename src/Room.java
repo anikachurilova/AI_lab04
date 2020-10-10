@@ -1,20 +1,21 @@
 import java.util.Objects;
 
 public class Room {
-    int id;
+    String number;
     int capacity;
 
-    public Room(int id, int capacity) {
-        this.id = id;
+    public Room(String number, int capacity) {
+        this.number = number;
         this.capacity = capacity;
     }
 
-    public int getId() {
-        return id;
+
+    public String getNumber() {
+        return number;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public int getCapacity() {
@@ -26,19 +27,20 @@ public class Room {
     }
 
     @Override
+    public String toString() {
+        return "Room{" +
+                "number='" + number + '\'' +
+                ", capacity=" + capacity +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Room room = (Room) o;
-        return id == room.id &&
-                capacity == room.capacity;
+        return capacity == room.capacity &&
+                Objects.equals(number, room.number);
     }
 
-    @Override
-    public String toString() {
-        return "Room{" +
-                "id=" + id +
-                ", capacity=" + capacity +
-                '}';
-    }
 }
