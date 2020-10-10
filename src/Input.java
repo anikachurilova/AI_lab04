@@ -19,12 +19,12 @@ public class Input {
     public static ArrayList<PeriodTime> periodTimes =new ArrayList<>();
 
 //    public static void main(String[] args) {
-//     //   takeinput();
-////        System.out.println(rooms);
-////        System.out.println(subjects);
-////        System.out.println(teachers);
-////        System.out.println(groups);
-////        System.out.println(periodTimes);
+//        takeinput();
+//        System.out.println(rooms);
+//        System.out.println(subjects);
+//        System.out.println(teachers);
+//        System.out.println(groups);
+//        System.out.println(periodTimes);
 //    }
 
 
@@ -116,20 +116,21 @@ public class Input {
                      if (!line.equals("end")) {
                          String[] currentDep = line.split(";");
                          ArrayList<Subject> dep_subjects = new ArrayList<>();
-                         for(int j=1; j<currentDep.length;j++){
-                             for(int i = 0; i< subjects.size(); i++){
-                                 if(Integer.parseInt(currentDep[j]+"0") == subjects.get(i).id){
+                         for (int j = 1; j < currentDep.length; j++) {
+                             for (int i = 0; i < subjects.size(); i++) {
+                                 if (Integer.parseInt(currentDep[j] + "0") == subjects.get(i).id) {
                                      dep_subjects.add(subjects.get(i));
 
                                  }
-                                 if(Integer.parseInt(currentDep[j]+"1") == subjects.get(i).id){
+                                 if (Integer.parseInt(currentDep[j] + "1") == subjects.get(i).id) {
                                      dep_subjects.add(subjects.get(i));
                                  }
                              }
                          }
-                    groups.add(new StudentGroup(currentDep[0],dep_subjects));
+                         groups.add(new StudentGroup(currentDep[0], dep_subjects));
+                     } else {
+                         break;
                      }
-                     break;
                  }
              }
 
