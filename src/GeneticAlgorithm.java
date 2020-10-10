@@ -20,9 +20,9 @@ public class GeneticAlgorithm {
     }
     Schedule crossoverSchedule(Schedule schedule1, Schedule schedule2) {
         Schedule crossoverSchedule = new Schedule(input).initialize();
-        IntStream.range(0, crossoverSchedule.getClasses().size()).forEach(x -> {
-            if (Math.random() > 0.5) crossoverSchedule.getClasses().set(x, schedule1.getClasses().get(x));
-            else crossoverSchedule.getClasses().set(x, schedule2.getClasses().get(x));
+        IntStream.range(0, crossoverSchedule.getSlots().size()).forEach(x -> {
+            if (Math.random() > 0.5) crossoverSchedule.getSlots().set(x, schedule1.getSlots().get(x));
+            else crossoverSchedule.getSlots().set(x, schedule2.getSlots().get(x));
         });
         return crossoverSchedule;
     }
@@ -37,8 +37,8 @@ public class GeneticAlgorithm {
     }
     Schedule mutateSchedule(Schedule mutateSchedule) {
         Schedule schedule = new Schedule(input).initialize();
-        IntStream.range(0, mutateSchedule.getClasses().size()).forEach(x -> {
-            if (Driver.MUTATION_RATE > Math.random()) mutateSchedule.getClasses().set(x, schedule.getClasses().get(x));
+        IntStream.range(0, mutateSchedule.getSlots().size()).forEach(x -> {
+            if (Driver.MUTATION_RATE > Math.random()) mutateSchedule.getSlots().set(x, schedule.getSlots().get(x));
         });
         return mutateSchedule;
     }
