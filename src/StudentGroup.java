@@ -4,12 +4,13 @@ import java.util.Objects;
 
 public class StudentGroup {
     public String name;
-    public ArrayList<Pair<Subject, Integer>> subjects;
+    public ArrayList<Subject> subjects;
 
-    public StudentGroup(String name, ArrayList<Pair<Subject, Integer>> subjects) {
+    public StudentGroup(String name, ArrayList<Subject> subjects) {
         this.name = name;
         this.subjects = subjects;
     }
+
 
     public String getName() {
         return name;
@@ -19,13 +20,7 @@ public class StudentGroup {
         this.name = name;
     }
 
-    public ArrayList<Pair<Subject, Integer>> getSubjects() {
-        return subjects;
-    }
 
-    public void setSubjects(ArrayList<Pair<Subject, Integer>> subjects) {
-        this.subjects = subjects;
-    }
 
     @Override
     public String toString() {
@@ -44,4 +39,11 @@ public class StudentGroup {
                 Objects.equals(subjects, that.subjects);
     }
 
+    public ArrayList<Subject> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(ArrayList<Subject> subjects) {
+        this.subjects = subjects;
+    }
 }
