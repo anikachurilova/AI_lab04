@@ -7,10 +7,10 @@ public class GeneticAlgorithm {
     public Population evolve(Population population) { return mutatePopulation(crossoverPopulation(population)); }
     Population crossoverPopulation(Population population) {
         Population crossoverPopulation = new Population(population.getSchedules().size(), input);
-        IntStream.range(0, Driver.NUMB_OF_ELITE_SCHEDULES).forEach(x -> crossoverPopulation.getSchedules().set(x,
+        IntStream.range(0, Output.NUMB_OF_ELITE_SCHEDULES).forEach(x -> crossoverPopulation.getSchedules().set(x,
                 population.getSchedules().get(x)));
-        IntStream.range(Driver.NUMB_OF_ELITE_SCHEDULES, population.getSchedules().size()).forEach(x -> {
-            if (Driver.CROSSOVER_RATE > Math.random()) {
+        IntStream.range(Output.NUMB_OF_ELITE_SCHEDULES, population.getSchedules().size()).forEach(x -> {
+            if (Output.CROSSOVER_RATE > Math.random()) {
                 Schedule schedule1 = selectTournamentPopulation(population).sortByFitness().getSchedules().get(0);
                 Schedule schedule2 = selectTournamentPopulation(population).sortByFitness().getSchedules().get(0);
                 crossoverPopulation.getSchedules().set(x, crossoverSchedule(schedule1, schedule2));
@@ -29,8 +29,8 @@ public class GeneticAlgorithm {
     Population mutatePopulation(Population population) {
         Population mutatePopulation = new Population(population.getSchedules().size(), input);
         ArrayList<Schedule> schedules = mutatePopulation.getSchedules();
-        IntStream.range(0, Driver.NUMB_OF_ELITE_SCHEDULES).forEach(x -> schedules.set(x, population.getSchedules().get(x)));
-        IntStream.range(Driver.NUMB_OF_ELITE_SCHEDULES, population.getSchedules().size()).forEach(x -> {
+        IntStream.range(0, Output.NUMB_OF_ELITE_SCHEDULES).forEach(x -> schedules.set(x, population.getSchedules().get(x)));
+        IntStream.range(Output.NUMB_OF_ELITE_SCHEDULES, population.getSchedules().size()).forEach(x -> {
             schedules.set(x, mutateSchedule(population.getSchedules().get(x)));
         });
         return mutatePopulation;
@@ -38,13 +38,13 @@ public class GeneticAlgorithm {
     Schedule mutateSchedule(Schedule mutateSchedule) {
         Schedule schedule = new Schedule(input).initialize();
         IntStream.range(0, mutateSchedule.getSlots().size()).forEach(x -> {
-            if (Driver.MUTATION_RATE > Math.random()) mutateSchedule.getSlots().set(x, schedule.getSlots().get(x));
+            if (Output.MUTATION_RATE > Math.random()) mutateSchedule.getSlots().set(x, schedule.getSlots().get(x));
         });
         return mutateSchedule;
     }
     Population selectTournamentPopulation(Population population) {
-        Population tournamentPopulation = new Population(Driver.TOURNAMENT_SELECTION_SIZE, input);
-        IntStream.range(0, Driver.TOURNAMENT_SELECTION_SIZE).forEach(x -> {
+        Population tournamentPopulation = new Population(Output.TOURNAMENT_SELECTION_SIZE, input);
+        IntStream.range(0, Output.TOURNAMENT_SELECTION_SIZE).forEach(x -> {
             tournamentPopulation.getSchedules().set(x,
                     population.getSchedules().get((int)(Math.random() * population.getSchedules().size())));
         });
