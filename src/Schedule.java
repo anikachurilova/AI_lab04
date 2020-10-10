@@ -42,7 +42,8 @@ public class Schedule {
         return this;
     }
     public int getNumbOfConflicts() { return numbOfConflicts; }
-    public ArrayList<Slot> getClasses() {
+
+    public ArrayList<Slot> getSlots() {
         isFitnessChanged = true;
         return slots;
     }
