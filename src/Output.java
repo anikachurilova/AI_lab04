@@ -60,15 +60,17 @@ public class Output {
 
         ArrayList<Slot> slots = schedule.getSlots();
         System.out.print("\n                       ");
-        System.out.println("Class # | Dept | Course (number, max # of students) | Room (Capacity) |   Instructor (Id)   |  Meeting Time (Id)");
+      //  System.out.println("Class # | Dept | Course (number, max # of students) | Room (Capacity) |   Instructor (Id)   |  Meeting Time (Id)");
         System.out.print("                       ");
         System.out.print("------------------------------------------------------");
         System.out.println("---------------------------------------------------------------");
 
 
+        System.out.println(input.getGroups());
 
         for(int i = 0; i < input.getGroups().size(); i++){
             StudentGroup currGroup = input.getGroups().get(i);
+            System.out.println(currGroup);
             System.out.println("Day     | 10:00 - 11:00 | 11:00 - 12:00 | 12:00 - 13:00 | 13:00 - 14:00 | 14:00 - 15:00 | 15:00 - 16:00 ");
             System.out.println("MN      | " + getSlot(slots,input.getPeriodTimes().get(0),currGroup) +" | " + getSlot(slots,input.getPeriodTimes().get(1),currGroup) +" | " + getSlot(slots,input.getPeriodTimes().get(2),currGroup) +" | " + getSlot(slots,input.getPeriodTimes().get(3),currGroup) +" | " + getSlot(slots,input.getPeriodTimes().get(4),currGroup) +" | " + getSlot(slots,input.getPeriodTimes().get(5),currGroup));
             System.out.println("TU      | " + getSlot(slots,input.getPeriodTimes().get(6),currGroup) +" | " + getSlot(slots,input.getPeriodTimes().get(7),currGroup) +" | " + getSlot(slots,input.getPeriodTimes().get(8),currGroup) +" | " + getSlot(slots,input.getPeriodTimes().get(9),currGroup) +" | " + getSlot(slots,input.getPeriodTimes().get(10),currGroup) +" | " + getSlot(slots,input.getPeriodTimes().get(11),currGroup));
