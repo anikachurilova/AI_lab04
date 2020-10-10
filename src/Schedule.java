@@ -9,9 +9,9 @@ public class Schedule {
     private int numbOfConflicts = 0;
     private Input input;
     public Input getInput() { return input; }
-    public Schedule(Input data) {
+    public Schedule(Input input) {
         this.input = input;
-        slots = new ArrayList<Slot>(input.getNumberOfClasses());
+        slots = new ArrayList<Slot>();
     }
     public Schedule initialize() {
 

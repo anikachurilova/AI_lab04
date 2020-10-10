@@ -57,6 +57,7 @@ public class Output {
     }
 
     private void printScheduleAsTable(Schedule schedule, int generation) {
+
         ArrayList<Slot> slots = schedule.getSlots();
         System.out.print("\n                       ");
         System.out.println("Class # | Dept | Course (number, max # of students) | Room (Capacity) |   Instructor (Id)   |  Meeting Time (Id)");
@@ -66,7 +67,7 @@ public class Output {
 
 
 
-        for(int i = 0; i < input.getGroups(); i++){
+        for(int i = 0; i < input.getGroups().size(); i++){
             StudentGroup currGroup = input.getGroups().get(i);
             System.out.println("Day     | 10:00 - 11:00 | 11:00 - 12:00 | 12:00 - 13:00 | 13:00 - 14:00 | 14:00 - 15:00 | 15:00 - 16:00 ");
             System.out.println("MN      | " + getSlot(slots,input.getPeriodTimes().get(0),currGroup) +" | " + getSlot(slots,input.getPeriodTimes().get(1),currGroup) +" | " + getSlot(slots,input.getPeriodTimes().get(2),currGroup) +" | " + getSlot(slots,input.getPeriodTimes().get(3),currGroup) +" | " + getSlot(slots,input.getPeriodTimes().get(4),currGroup) +" | " + getSlot(slots,input.getPeriodTimes().get(5),currGroup));

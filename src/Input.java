@@ -15,23 +15,23 @@ public class Input {
     public static ArrayList<Room> rooms = new ArrayList<>();
     public static ArrayList<Teacher> teachers = new ArrayList<>();
     public static ArrayList<Subject> subjects =new ArrayList<>();
-    public static ArrayList<StudentGroup> studentGroups =new ArrayList<>();
+    public static ArrayList<StudentGroup> groups =new ArrayList<>();
     public static ArrayList<PeriodTime> periodTimes =new ArrayList<>();
 
-    public static void main(String[] args) {
+//    public static void main(String[] args) {
+//     //   takeinput();
+////        System.out.println(rooms);
+////        System.out.println(subjects);
+////        System.out.println(teachers);
+////        System.out.println(groups);
+////        System.out.println(periodTimes);
+//    }
+
+
+
+    public Input(){
         takeinput();
-        System.out.println(rooms);
-        System.out.println(subjects);
-        System.out.println(teachers);
-        System.out.println(studentGroups);
-        System.out.println(periodTimes);
     }
-
-
-
-
-
-
     public static void takeinput()// takes input from file input.txt
     {
      try {
@@ -127,7 +127,7 @@ public class Input {
                                  }
                              }
                          }
-                    studentGroups.add(new StudentGroup(currentDep[0],dep_subjects));
+                    groups.add(new StudentGroup(currentDep[0],dep_subjects));
                      }
                      break;
                  }
@@ -139,4 +139,26 @@ public class Input {
         }
 
     }
+
+    public static ArrayList<Room> getRooms() {
+        return rooms;
+    }
+
+    public static ArrayList<Teacher> getTeachers() {
+        return teachers;
+    }
+
+    public static ArrayList<Subject> getSubjects() {
+        return subjects;
+    }
+
+    public static ArrayList<StudentGroup> getGroups() {
+        return groups;
+    }
+
+    public static ArrayList<PeriodTime> getPeriodTimes() {
+        return periodTimes;
+    }
+
+
 }
