@@ -44,7 +44,7 @@ public class Input {
              if(line.equals("rooms")){
                  while(true) {
                      line = scanner.nextLine();
-                     if (!line.equals("meetingTime")) {
+                     if (!line.equals("periodTime")) {
                          String[] currentRoom = line.split(";");
                          Room r = new Room(currentRoom[0], Integer.parseInt(currentRoom[1]));
                          rooms.add(r);
@@ -54,10 +54,10 @@ public class Input {
                      }
                  }
              }
-             if(line.equals("meetingTime")){
+             if(line.equals("periodTime")){
                  while(true) {
                      line = scanner.nextLine();
-                     if (!line.equals("instructors")) {
+                     if (!line.equals("teachers")) {
                          String[] currentMeetingTime = line.split(";");
                          periodTimes.add(new PeriodTime(currentMeetingTime[0],currentMeetingTime[1]));
                      }else{
@@ -66,10 +66,10 @@ public class Input {
                      }
                  }
              }
-             if(line.equals("instructors")){
+             if(line.equals("teachers")){
                  while(true) {
                      line = scanner.nextLine();
-                     if (!line.equals("courses")) {
+                     if (!line.equals("subjects")) {
                          String[] currentInstructor = line.split(";");
                          teachers.add(new Teacher(Integer.parseInt(currentInstructor[0]),currentInstructor[1]));
                      }else{
@@ -78,10 +78,10 @@ public class Input {
                      }
                  }
              }
-             if(line.equals("courses")){
+             if(line.equals("subjects")){
                  while(true) {
                      line = scanner.nextLine();
-                     if (!line.equals("depts")) {
+                     if (!line.equals("groups")) {
                          String[] currentCourse = line.split(";");
                          //додаємо лекцію
                          //находимо лектора за індексом
@@ -110,7 +110,7 @@ public class Input {
                      }
                  }
              }
-             if(line.equals("depts")) {
+             if(line.equals("groups")) {
                  while (true) {
                      line = scanner.nextLine();
                      if (!line.equals("end")) {
