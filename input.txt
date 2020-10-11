@@ -45,7 +45,7 @@ courses
 104;Algebra;03;03;04
 105;APPRP;04;04
 106;MOOP;01;03
-107;Functional programming;02;04
+107;Haskell;02;04
 depts
 MATH;101;103
 EE;102;104;105
