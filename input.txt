@@ -2,7 +2,10 @@ rooms
 R1;25
 R2;45
 R3;15
-meetingTime
+R4;50
+R5;45
+R6;90
+periodTime
 MT_MN_1;Monday 10:00 - 11:00
 MT_MN_2;Monday 11:00 - 12:00
 MT_MN_3;Monday 12:00 - 13:00
@@ -33,12 +36,17 @@ MT_FR_3;Friday 12:00 - 13:00
 MT_FR_4;Friday 13:00 - 14:00
 MT_FR_5;Friday 14:00 - 15:00
 MT_FR_6;Friday 15:00 - 16:00
-instructors
-01;Dr James Web
+teachers
+01;Dr. James Web
 02;Mr. Mike Brown
-03;Dr Steve Day
-04;Mrs Jane Doe
-courses
+03;Dr. Steve Day
+04;Mrs. Jane Doe
+05;Mr. Rick Kell
+06;Mrs. Vicky Bell
+07;Ms. Hailey Bobbi
+08;Dr. Poul Wes
+09;Mr. James Pew
+subjects
 101;BD;01;01;02
 102;Java;01;02;03
 103;Cyber security;01;02
@@ -46,8 +54,13 @@ courses
 105;APPRP;04;04
 106;MOOP;01;03
 107;Haskell;02;04
-depts
-MATH;101;103
-EE;102;104;105
-PHY;106;107
+108;Biology;07;07
+109;English;05;07
+110;Sport;06;06
+111;Medicine;08;07
+112;Java EE;09;01;09
+groups
+MATH;101;103;109;110;112;111
+EE;102;104;105;110;111
+PHY;106;107;108;110;112;111
 end
